@@ -1,12 +1,6 @@
 module.exports = {
-  extends: ['eslint:recommended'],
-  parserOptions: {
-    ecmaVersion: 6,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
+  extends: ['eslint:recommended', 'plugin:react/recommended'],
+  parser: 'babel-eslint',
   env: {
     node: true,
   },
@@ -14,12 +8,18 @@ module.exports = {
     quotes: ['error', 'single', { avoidEscape: true }],
     'comma-dangle': ['error', 'always-multiline'],
   },
-  overrides: [ // makes sure eslint-plugin-jest runs for tests only
+  settings: {
+    react: {
+      version: '16.12.0',
+    },
+  },
+  overrides: [
+    // makes sure eslint-plugin-jest runs for tests only
     Object.assign(
       {
-        files: [ '**/*test.js', '**/*spec.js' ],
+        files: ['**/*test.js', '**/*spec.js'],
         env: { jest: true },
-        plugins: [ 'jest' ],
+        plugins: ['jest'],
       },
       require('eslint-plugin-jest').configs.recommended
     ),
