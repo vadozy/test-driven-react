@@ -6,22 +6,30 @@ module.exports = {
   },
   rules: {
     quotes: ['error', 'single', { avoidEscape: true }],
-    'comma-dangle': ['error', 'always-multiline'],
+    'jsx-quotes': ['error', 'prefer-single'],
+    'comma-dangle': [
+      'error',
+      {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'only-multiline',
+        exports: 'only-multiline',
+        functions: 'only-multiline',
+      },
+    ],
   },
   settings: {
     react: {
-      version: '16.12.0',
+      version: 'detect',
     },
   },
   overrides: [
     // makes sure eslint-plugin-jest runs for tests only
-    Object.assign(
-      {
-        files: ['**/*test.js', '**/*spec.js'],
-        env: { jest: true },
-        plugins: ['jest'],
-      },
-      require('eslint-plugin-jest').configs.recommended
-    ),
+    {
+      files: ['**/*test.js', '**/*spec.js', '**/jestSetup.js'],
+      env: { jest: true },
+      plugins: ['jest'],
+      ...require('eslint-plugin-jest').configs.recommended,
+    },
   ],
 };

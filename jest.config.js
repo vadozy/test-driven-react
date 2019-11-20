@@ -1,3 +1,4 @@
 module.exports = {
-  setupFilesAfterEnv: ['./src/jestSetup.js'],
+  setupFilesAfterEnv: ['./src/config/jestSetup.js'],
+  snapshotSerializers: ['enzyme-to-json/serializer'],
 };
