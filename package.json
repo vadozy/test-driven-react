@@ -13,9 +13,9 @@
   "author": "Vadim Storozhuk",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^6.6.0",
-    "eslint-plugin-jest": "^23.0.0",
-    "jest": "^24.9.0",
-    "prettier": "^1.18.2"
+    "eslint": "^6.8.0",
+    "eslint-plugin-jest": "^23.8.2",
+    "jest": "^25.4.0",
+    "prettier": "^2.0.5"
   }
 }

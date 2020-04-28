@@ -1,15 +1,8 @@
 const palindromes = str => {
   const words = splitToLowerCaseWords(str);
   const candidates = palindromeCandidates(words);
-  return candidates.filter(function(word) {
-    return (
-      word.length > 1 &&
-      word ===
-        word
-          .split('')
-          .reverse()
-          .join('')
-    );
+  return candidates.filter(function (word) {
+    return word.length > 1 && word === word.split('').reverse().join('');
   });
 };
 

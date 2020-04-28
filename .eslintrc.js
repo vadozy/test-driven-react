@@ -1,7 +1,7 @@
 module.exports = {
   extends: ['eslint:recommended'],
   parserOptions: {
-    ecmaVersion: 6,
+    ecmaVersion: 2018,
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
@@ -12,16 +12,24 @@ module.exports = {
   },
   rules: {
     quotes: ['error', 'single', { avoidEscape: true }],
-    'comma-dangle': ['error', 'always-multiline'],
-  },
-  overrides: [ // makes sure eslint-plugin-jest runs for tests only
-    Object.assign(
+    'comma-dangle': [
+      'error',
       {
-        files: [ '**/*test.js', '**/*spec.js' ],
-        env: { jest: true },
-        plugins: [ 'jest' ],
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'only-multiline',
+        exports: 'only-multiline',
+        functions: 'only-multiline',
       },
-      require('eslint-plugin-jest').configs.recommended
-    ),
+    ],
+  },
+  overrides: [
+    // makes sure eslint-plugin-jest runs for tests only
+    {
+      files: ['**/*test.js', '**/*spec.js'],
+      env: { jest: true },
+      plugins: ['jest'],
+      ...require('eslint-plugin-jest').configs.recommended,
+    },
   ],
 };
