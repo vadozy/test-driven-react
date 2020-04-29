@@ -6,7 +6,7 @@ describe('CarouselSlide', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<CarouselSlide imgUrl="" description="" />);
+    wrapper = shallow(<CarouselSlide imgUrl='' description='' />);
   });
 
   it('renders a <figure>', () => {
@@ -34,12 +34,7 @@ describe('CarouselSlide', () => {
     );
     expect(wrapper.find('figcaption strong').text()).toBe(description);
     // next line is same as previous
-    expect(
-      wrapper
-        .find('figcaption')
-        .find('strong')
-        .text()
-    ).toBe(description);
+    expect(wrapper.find('figcaption').find('strong').text()).toBe(description);
   });
 
   it('passes other props through to the <figure>', () => {
@@ -47,8 +42,9 @@ describe('CarouselSlide', () => {
     const onClick = () => {};
     const className = 'my-carousel-slide';
     wrapper.setProps({ style, onClick, className });
-    expect(wrapper.prop('style')).toBe(style);
-    expect(wrapper.prop('onClick')).toBe(onClick);
-    expect(wrapper.prop('className')).toBe(className);
+    const figure = wrapper.find('figure');
+    expect(figure.prop('style')).toBe(style);
+    expect(figure.prop('onClick')).toBe(onClick);
+    expect(figure.prop('className')).toBe(className);
   });
 });

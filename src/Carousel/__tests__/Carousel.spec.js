@@ -39,21 +39,11 @@ describe('Carousel', () => {
   });
 
   it('renders a CarouselButton labeled "Prev"', () => {
-    expect(
-      wrapper
-        .find(CarouselButton)
-        .at(0)
-        .prop('children')
-    ).toBe('Prev');
+    expect(wrapper.find(CarouselButton).at(0).prop('children')).toBe('Prev');
   });
 
   it('renders a CarouselButton labeled "Next"', () => {
-    expect(
-      wrapper
-        .find(CarouselButton)
-        .at(1)
-        .prop('children')
-    ).toBe('Next');
+    expect(wrapper.find(CarouselButton).at(1).prop('children')).toBe('Next');
   });
 
   describe('with a middle slide selected', () => {
