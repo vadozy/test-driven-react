@@ -3,13 +3,22 @@ module.exports = wallaby => {
     files: [
       'package.json',
       '**/*.js',
+      '**/*.jsx',
       '!**/*.test.js',
+      '!**/*.test.jsx',
       '!**/*.spec.js',
+      '!**/*.spec.jsx',
       '!node_modules/**/*',
       '!./*.js',
       '!dist/**/*',
     ],
-    tests: ['**/*.test.js', '**/*.spec.js', '!node_modules/**/*'],
+    tests: [
+      '**/*.test.js',
+      '**/*.test.jsx',
+      '**/*.spec.js',
+      '**/*.spec.jsx',
+      '!node_modules/**/*',
+    ],
 
     // runMode: 'onsave',
 
@@ -20,6 +29,7 @@ module.exports = wallaby => {
     testFramework: 'jest',
     compilers: {
       '**/*.js': wallaby.compilers.babel(),
+      '**/*.jsx': wallaby.compilers.babel(),
     },
   };
 };

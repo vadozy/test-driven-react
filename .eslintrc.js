@@ -17,6 +17,7 @@ module.exports = {
         functions: 'only-multiline',
       },
     ],
+    'no-unused-vars': ['error', { varsIgnorePattern: '^_' }],
   },
   settings: {
     react: {
@@ -26,7 +27,13 @@ module.exports = {
   overrides: [
     // makes sure eslint-plugin-jest runs for tests only
     {
-      files: ['**/*test.js', '**/*spec.js', '**/jestSetup.js'],
+      files: [
+        '**/*test.js',
+        '**/*test.jsx',
+        '**/*spec.js',
+        '**/*spec.jsx',
+        '**/jestSetup.js',
+      ],
       env: { jest: true },
       plugins: ['jest'],
       ...require('eslint-plugin-jest').configs.recommended,
