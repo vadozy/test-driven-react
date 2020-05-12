@@ -2,6 +2,7 @@ import React from 'react';
 import CarouselButton from './CarouselButton';
 import CarouselSlide from './CarouselSlide';
 import hasIndex from '../HOC/HasIndex';
+import autoAdvances from '../HOC/AutoAdvances';
 import PropTypes from 'prop-types';
 
 function Carousel(props) {
@@ -61,4 +62,5 @@ Carousel.defaultProps = {
 };
 
 export { Carousel };
-export default hasIndex(Carousel, 'slideIndex');
+// export default hasIndex(Carousel, 'slideIndex');
+export default hasIndex(autoAdvances(Carousel, 'slideIndex', 'slides'), 'slideIndex');
