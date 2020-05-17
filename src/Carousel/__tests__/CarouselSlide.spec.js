@@ -44,12 +44,7 @@ describe('CarouselSlide', () => {
     );
     expect(wrapper.find('figcaption strong').text()).toBe(description);
     // next line is same as previous
-    expect(
-      wrapper
-        .find('figcaption')
-        .find('strong')
-        .text()
-    ).toBe(description);
+    expect(wrapper.find('figcaption').find('strong').text()).toBe(description);
   });
 
   it('passes other props through to the <figure>', () => {

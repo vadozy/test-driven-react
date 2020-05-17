@@ -63,4 +63,7 @@ Carousel.defaultProps = {
 
 export { Carousel };
 // export default hasIndex(Carousel, 'slideIndex');
-export default hasIndex(autoAdvances(Carousel, 'slideIndex', 'slides'), 'slideIndex');
+export default hasIndex(
+  autoAdvances(Carousel, 'slideIndex', 'slides'),
+  'slideIndex'
+);
